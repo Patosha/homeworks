@@ -2,12 +2,18 @@ import React, {useState} from 'react'
 import Affairs from './Affairs'
 
 // types
-export type AffairPriorityType = any // need to fix any
-export type AffairType = any // need to fix any
+export type AffairPriorityType = 'high' | 'middle' | 'low' // need to fix any
+export type AffairType = Array<any> // need to fix any
 export type FilterType = 'all' | AffairPriorityType
 
+type defaultAffairsType = {
+    _id: number
+    name: string
+    priority: string
+}
+
 // constants
-const defaultAffairs: any = [ // need to fix any
+const defaultAffairs: Array<defaultAffairsType> = [ // need to fix any
     {_id: 1, name: 'React', priority: 'high'},
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
@@ -29,7 +35,7 @@ function HW2() {
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: any) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
+    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
 
     return (
         <div>
